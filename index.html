@@ -23,6 +23,10 @@
             color: white;
             font-weight: bold;
         }
+        .b{
+            background-color: #6198f7;
+            border-color: #6198f7;  
+        }
         .hr {
             align-items: center;
             display: flex;
@@ -88,7 +92,7 @@
         <br>
         <input class="forget text-right pwd" disabled="false" placeholder="Forget password?">
         <br><br>
-        <button class="p-1 bb">
+        <button class="p-1 bb b">
             Log In
         </button>
         <br><br><br>
@@ -115,7 +119,7 @@
 </body>
   <script>
 
-    $('.bb').click(() => {
+    $('.b').click(() => {
         console.log("fhzsklfhlk")
         let username = $('usr').val
         let pwd = $('pwd').val
